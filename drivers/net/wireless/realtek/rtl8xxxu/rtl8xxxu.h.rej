@@ -1,0 +1,35 @@
+--- drivers/net/wireless/realtek/rtl8xxxu/rtl8xxxu.h
++++ drivers/net/wireless/realtek/rtl8xxxu/rtl8xxxu.h
+@@ -1,15 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+  * Copyright (c) 2014 - 2017 Jes Sorensen <Jes.Sorensen@gmail.com>
+  *
+- * This program is free software; you can redistribute it and/or modify it
+- * under the terms of version 2 of the GNU General Public License as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful, but WITHOUT
+- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+- * more details.
+- *
+  * Register definitions taken from original Realtek rtl8723au driver
+  */
+ 
+@@ -1603,7 +1752,15 @@ void rtl8xxxu_fill_txdesc_v2(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
+ 			     struct rtl8xxxu_txdesc32 *tx_desc32, bool sgi,
+ 			     bool short_preamble, bool ampdu_enable,
+ 			     u32 rts_rate);
++void rtl8xxxu_fill_txdesc_v3(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
++			     struct ieee80211_tx_info *tx_info,
++			     struct rtl8xxxu_txdesc32 *tx_desc32, bool sgi,
++			     bool short_preamble, bool ampdu_enable,
++			     u32 rts_rate);
++void rtl8723bu_set_ps_tdma(struct rtl8xxxu_priv *priv,
++			   u8 arg1, u8 arg2, u8 arg3, u8 arg4, u8 arg5);
+ 
++extern struct rtl8xxxu_fileops rtl8188eu_fops;
+ extern struct rtl8xxxu_fileops rtl8192cu_fops;
+ extern struct rtl8xxxu_fileops rtl8192eu_fops;
+ extern struct rtl8xxxu_fileops rtl8723au_fops;

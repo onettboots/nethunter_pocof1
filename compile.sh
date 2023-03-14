@@ -6,7 +6,7 @@
 KERNELNAME="NoGravity Kernel v2.1"
 ARCH="arm64"
 SUBARCH="arm64"
-DEFCONFIG=boolx_defconfig
+DEFCONFIG=boolx1_defconfig
 #DEFCONFIG=beryllium_defconfig
 COMPILER=clang
 LINKER=""

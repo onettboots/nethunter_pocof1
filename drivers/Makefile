@@ -7,7 +7,6 @@
 
 obj-y				+= irqchip/
 obj-y				+= bus/
-obj-y                           += rtl8188eus/
 
 obj-$(CONFIG_GENERIC_PHY)	+= phy/
 
