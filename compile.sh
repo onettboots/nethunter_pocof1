@@ -6,11 +6,11 @@
 KERNELNAME="NoGravity Kernel v2.1"
 ARCH="arm64"
 SUBARCH="arm64"
-DEFCONFIG=nogravity_defconfig
+DEFCONFIG=boolx_defconfig
 #DEFCONFIG=beryllium_defconfig
 COMPILER=clang
 LINKER=""
-COMPILERDIR="/media/pierre/Expension/Android/PocophoneF1/Kernels/Proton-Clang"
+COMPILERDIR="/home/onett/toolchains/proton-clang"
 
 # Export shits
 export KBUILD_BUILD_USER=Pierre2324
@@ -34,7 +34,7 @@ ARCH=${ARCH} \
 CC=${COMPILER} \
 CROSS_COMPILE=${COMPILERDIR}/bin/aarch64-linux-gnu- \
 CROSS_COMPILE_ARM32=${COMPILERDIR}/bin/arm-linux-gnueabi- \
-LD_LIBRARY_PATH=${COMPILERDIR}/lib
+LD_LIBRARY_PATH=${COMPILERDIR}/lib | tee build-log.txt
 }
 
 Build_lld () {
@@ -51,7 +51,7 @@ OBJCOPY=llvm-objcopy \
 OBJDUMP=llvm-objdump \
 STRIP=llvm-strip \
 ld-name=${LINKER} \
-KBUILD_COMPILER_STRING="Proton Clang"
+KBUILD_COMPILER_STRING="Proton Clang" | tee build-log.txt
 }
 
 # Make defconfig
